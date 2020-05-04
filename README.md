@@ -18,10 +18,10 @@ Genetics Data 4 Us is a program solution that takes in genome data to compare ag
 7. Run makeNewFasta.py. This will output genomic files in .fasta format
 8. Move all new FASTA files and metadata files to a new directory. In this new directory, make a config directory where all the references will be placed
 9. Make sure that there are four files in total for each disease you want to analyze: 
-   - A new FASTA file made from makeNewFasta.py. These have the convention "<virus name>_new.fasta"
-   - A new Metadata file made from makeMeta.py. These have the convention "<virus name>_meta.tsv" 
-   - A reference file in the config folder. These are taken from the raw NextStrain download, and have the convention "<virus name>_reference.gb"
-   - A text document with excluded strains. These are text files that have the case names of cases that you want excluded from analysis, and have the convention "<virus name>_dropped_strains.txt". They are also placed in the config directory
+   - A new FASTA file made from makeNewFasta.py. These have the convention "-virus name-_new.fasta"
+   - A new Metadata file made from makeMeta.py. These have the convention "-virus name-_meta.tsv" 
+   - A reference file in the config folder. These are taken from the raw NextStrain download, and have the convention "-virus name-_reference.gb"
+   - A text document with excluded strains. These are text files that have the case names of cases that you want excluded from analysis, and have the convention "-virus name-_dropped_strains.txt". They are also placed in the config directory
 10. Run runAugur.py. This step may take a while depending on the number of cases in the FASTA file
 11. Edit ParseVirusData.py to include the analyzed virus names
 12. Run ParseVirusData.py. This step will make the final JSON files with all the necessary information
@@ -36,9 +36,9 @@ The final JSON format will have the following form:
 
 The final JSON will be a sigle object containing all the cases for a specific disease. 
 
-The amino acid list will be organized by protein (E for envelope, S for spike, etc. Check the results folder and the aa_muts JSON file to see what protein each letter refers to) in the format of "<original amino acid><mutation position><new amino acid>" (ex: A234K)
+The amino acid list will be organized by protein (E for envelope, S for spike, etc. Check the results folder and the aa_muts JSON file to see what protein each letter refers to) in the format of "-original amino acid--mutation position--new amino acid-" (ex: A234K)
 
-The nucleotide list will be just a plain list containing all the individual mutations in the format of "<original nucleotide><mutation position><new nucleotide>" (ex: T273G)
+The nucleotide list will be just a plain list containing all the individual mutations in the format of "-original nucleotide--mutation position--new nucleotide-" (ex: T273G)
 
 ## Repository Organization
 
